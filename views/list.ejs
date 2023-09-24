@@ -1,5 +1,4 @@
 
-
 <%- include("header") -%>
 
 <div id="mainDiv" style="height: 80vh;">
@@ -36,12 +35,12 @@
 
     <form action="/update" method="post" id="editForm" >
 
+
     </form>
 
 
     <script>
         function editItem(index) {
-         
           const paragraph = document.querySelector(`.item:nth-child(${index + 1}) p`);
           const editField = document.createElement("input");
           editField.type = "text";
@@ -94,4 +93,5 @@
     </script>
 
 <%- include("footer") -%>
+
 

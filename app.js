@@ -50,6 +50,29 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
+app.post("/delete", function (req, res) {
+
+  //console.log(req.body.list);
+    var index = req.body.index;
+    Item.findByIdAndDelete(index).then(()=>{
+      //Item.deleteOne({name:index}).then(()=>{
+        console.log("deleted");
+      }).catch((err)=>{
+        console.log(err);
+      });
+      res.redirect("/");
+    }
+  // itemlists.splice(index, 1); // Remove the corresponding paragraph from the array
+  // res.redirect("/"); // Redirect to the homepage
+  );
+
+  app.post("/update", function (req, res) {
+    const index = req.body.index;
+    const updatedText = req.body.updatedValue;
+    itemlists[index] = updatedText; // Update the corresponding item in the list array
+    res.redirect("/");
+  });
+
 app.listen(3001, function() {
   console.log("Server started on port 3000");
 });
