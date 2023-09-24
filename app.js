@@ -35,6 +35,13 @@ app.post("/", function(req, res){
   }
 });
 
+app.post("/update", function (req, res) {
+  const index = req.body.index;
+  const updatedText = req.body.updatedValue;
+  itemlists[index] = updatedText; // Update the corresponding item in the list array
+  res.redirect("/");
+});
+
 app.get("/work", function(req,res){
   res.render("list", {listTitle: "Work List", newListItems: workItems});
 });
